@@ -9,8 +9,7 @@ const app = express()
 const compiler = webpack(config)
 
 app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath,
-  historyApiFallback: true,
+  publicPath: config.output.publicPath
 }))
 
 app.use(webpackHotMiddleware(compiler))
