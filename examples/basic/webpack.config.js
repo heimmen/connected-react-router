@@ -2,14 +2,14 @@ const path = require('path')
 const webpack = require('webpack');
 const port = 1214;
 
-const publicPath = `http://localhost:${port}/dist`;
+// const publicPath = `http://localhost:${port}/`;
 
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   entry: [
     'react-hot-loader/patch',
-    // `webpack-dev-server/client?http://localhost:${port}/`,
+    `webpack-dev-server/client?http://localhost:${port}/`,
     path.resolve('src/index.js'),
   ],
   context: __dirname,
