@@ -37,52 +37,47 @@ module.exports = {
     ],
   },
   devServer: {
-    historyApiFallback: true,
-    hot: true,
-    static: {
-      directory: __dirname
-    },
-	// 	port,
-	// 	host: 'localhost',
-	// 	compress: true,
-	// 	hot: true,
-	// 	allowedHosts: 'all',
-	// 	headers: { 'Access-Control-Allow-Origin': '*' },
-	// 	static: {
-	// 		directory: path.join(__dirname, 'dist'),
-	// 		publicPath
-	// 	},
-	// 	watchFiles: {
-	// 		paths: __dirname,
-	// 		options: {
-	// 			aggregateTimeout: 1000,
-	// 			ignored: [
-	// 				path.resolve(__dirname, 'node_modules'),
-	// 				path.resolve(__dirname, 'app/node_modules'),
-	// 				path.resolve(__dirname, 'stats_backend'),
-	// 				path.resolve(__dirname, 'Samples'),
-	// 				path.resolve(__dirname, 'flow-typed'),
-	// 				path.resolve(__dirname, '.git'),
-	// 				path.resolve(__dirname, 'dll')
-	// 			],
-	// 			poll: 3000
-	// 		}
-	// 	},
-	// 	historyApiFallback: {
-	// 		verbose: true,
-	// 		disableDotRule: false
-	// 	},
-	// 	onBeforeSetupMiddleware: () => {
-	// 		if (process.env.START_HOT) {
-	// 			console.log('Starting Main Process...'); // eslint-disable-line
-	// 			spawn('npm', ['run', 'start-main-dev'], {
-	// 				shell: true,
-	// 				env: process.env,
-	// 				stdio: 'inherit'
-	// 			})
-	// 				.on('close', code => process.exit(code)) // eslint-disable-line
-	// 				.on('error', (spawnError) => console.error(spawnError));
-	// 		}
-	// 	}
+	  port,
+		host: 'localhost',
+		compress: true,
+		hot: true,
+		allowedHosts: 'all',
+		headers: { 'Access-Control-Allow-Origin': '*' },
+		static: {
+			directory: __dirname,
+			// publicPath
+		},
+		watchFiles: {
+			paths: __dirname,
+			options: {
+				aggregateTimeout: 1000,
+				ignored: [
+					path.resolve(__dirname, 'node_modules'),
+					path.resolve(__dirname, 'app/node_modules'),
+					path.resolve(__dirname, 'stats_backend'),
+					path.resolve(__dirname, 'Samples'),
+					path.resolve(__dirname, 'flow-typed'),
+					path.resolve(__dirname, '.git'),
+					path.resolve(__dirname, 'dll')
+				],
+				poll: 3000
+			}
+		},
+		historyApiFallback: {
+			verbose: true,
+			disableDotRule: false
+		},
+		onBeforeSetupMiddleware: () => {
+			if (process.env.START_HOT) {
+				console.log('Starting Main Process...'); // eslint-disable-line
+				spawn('npm', ['run', 'start-main-dev'], {
+					shell: true,
+					env: process.env,
+					stdio: 'inherit'
+				})
+					.on('close', code => process.exit(code)) // eslint-disable-line
+					.on('error', (spawnError) => console.error(spawnError));
+			}
+		}
 	}
 }
