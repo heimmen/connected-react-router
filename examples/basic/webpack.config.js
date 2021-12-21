@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack');
 const port = 1214;
 
-// const publicPath = `http://localhost:${port}/`;
+const publicPath = '/';
 
 module.exports = {
   mode: 'development',
@@ -10,6 +10,7 @@ module.exports = {
   entry: [
     'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${port}/`,
+    'webpack/hot/only-dev-server',
     path.resolve('src/index.js'),
   ],
   context: __dirname,
@@ -45,7 +46,7 @@ module.exports = {
 		headers: { 'Access-Control-Allow-Origin': '*' },
 		static: {
 			directory: __dirname,
-			// publicPath
+			publicPath
 		},
 		watchFiles: {
 			paths: __dirname,
