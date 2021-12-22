@@ -9,7 +9,7 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: [
     'react-hot-loader/patch',
-    `webpack-dev-server/client?http://localhost:${port}/`,
+    'webpack-dev-server/client',
     'webpack/hot/only-dev-server',
     path.resolve('src/index.js'),
   ],
@@ -37,6 +37,7 @@ module.exports = {
       'node_modules',
     ],
   },
+  stats: 'minimal',
   devServer: {
 	  port,
 		host: 'localhost',
